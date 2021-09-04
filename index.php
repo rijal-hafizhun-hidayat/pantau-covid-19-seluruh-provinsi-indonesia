@@ -78,7 +78,7 @@ if (isset($_POST["masuk"])) {
       <div class="col-sm-4">
         <div class="card bg-warning">
           <div class="card-body">
-            <p>Kasus Positif</p>
+            <p>Total Kasus Positif</p>
             <p><?php echo $covid[$daerah]["attributes"]["Kasus_Posi"]; ?></p>
           </div>
         </div>
@@ -86,7 +86,7 @@ if (isset($_POST["masuk"])) {
       <div class="col-sm-4">
         <div class="card bg-success">
           <div class="card-body">
-            <p>Kasus Sembuh</p>
+            <p>Total Kasus Sembuh</p>
             <p><?php echo $covid[$daerah]["attributes"]["Kasus_Semb"]; ?></p>
           </div>
         </div>
@@ -94,7 +94,7 @@ if (isset($_POST["masuk"])) {
       <div class="col-sm-4">
         <div class="card bg-danger">
           <div class="card-body">
-            <p>Kasus Meninggal</p>
+            <p>Total Kasus Meninggal</p>
             <p><?php echo $covid[$daerah]["attributes"]["Kasus_Meni"]; ?></p>
           </div>
         </div>
