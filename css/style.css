@@ -14,6 +14,9 @@
     .container .row .bungkus h3{
         margin-top: 20px;
     }
+    .container .row h3{
+        margin: 20px 0px;
+    }
 }
 @media (max-width: 576px) {
     .cont{
