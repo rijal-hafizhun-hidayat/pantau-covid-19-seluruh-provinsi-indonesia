@@ -1,7 +1,14 @@
 <?php
+$number = 0;
 $daerah = 0;
+//data provinsi indonesia
 $data = file_get_contents('https://api.kawalcorona.com/indonesia/provinsi/');
 $covid = json_decode($data, true);
+
+//data global
+$global = file_get_contents('https://api.kawalcorona.com/');
+$parsing_global = json_decode($global, true);
+// var_dump($parsing_global); die();
 //var_dump($covid);die();
 // echo $covid[0]["attributes"]["Provinsi"];
 // echo $covid[0]["attributes"]["Kasus_Posi"];
@@ -100,36 +107,35 @@ if (isset($_POST["masuk"])) {
         </div>
       </div>
       <h3>kasus corona virus global</h3>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">No</th>
-            <th scope="col">Negara</th>
-            <th scope="col">Positif</th>
-            <th scope="col">Sembuh</th>
-            <th scope="col">Meninggal</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="table-wrapper-scroll-y my-custom-scrollbar">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">No</th>
+              <th scope="col">Negara</th>
+              <th scope="col">Positif</th>
+              <th scope="col">Sembuh</th>
+              <th scope="col">Meninggal</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            for ($i = 0; $i < 195; $i++) {
+              $number++;
+            ?>
+              <tr>
+                <th scope="row"><?php echo $number; ?></th>
+                <td><?php echo $parsing_global[$i]["attributes"]["Country_Region"]; ?></td>
+                <td><?php echo $parsing_global[$i]["attributes"]["Confirmed"]; ?></td>
+                <td><?php echo $parsing_global[$i]["attributes"]["Recovered"]; ?></td>
+                <td><?php echo $parsing_global[$i]["attributes"]["Deaths"]; ?></td>
+              </tr>
+            <?php }
+
+            ?>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 
