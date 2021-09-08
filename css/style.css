@@ -1,0 +1,47 @@
+@media (min-width: 992px) {
+    .cont{
+        margin-top: 50px;
+    }
+    .col-sm-4 .card{
+        margin-top: 50px;
+    }
+    .col-sm-4 .card .card-body p{
+        color: white;
+        text-align: center;
+        font-size: 25px;
+        font-weight: 500;
+    }
+    .container .row .bungkus h3{
+        margin-top: 20px;
+    }
+    .container .row h3{
+        margin: 20px 0px;
+    }
+    .my-custom-scrollbar {
+        position: relative;
+        height: 400px;
+        overflow: auto;
+        margin: 30px 0px;
+        margin-bottom: 30px;
+    }
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+}
+@media (max-width: 576px) {
+    .cont{
+        margin-top: 30px;
+    }
+    .col-sm-4 .card{
+        margin-top: 30px;
+    }
+    .col-sm-4 .card .card-body p{
+        color: white;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .container .row .select form select{
+        margin-top: 20px;
+    }
+}
