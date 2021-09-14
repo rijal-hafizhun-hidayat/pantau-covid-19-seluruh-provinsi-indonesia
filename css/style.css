@@ -5,7 +5,7 @@
     .col-sm-4 .card{
         margin-top: 50px;
     }
-    .col-sm-4 .card .card-body p{
+    .col-sm-4 .card .card-body .huruf-card{
         color: white;
         text-align: center;
         font-size: 25px;
@@ -27,6 +27,13 @@
     .table-wrapper-scroll-y {
         display: block;
     }
+    .col-sm-4 .card .card-body .card-text{
+        color: black;
+        font-size: 15px;
+    }
+    .area{
+        margin-bottom: 30px;
+    }
 }
 @media (max-width: 576px) {
     .cont{
@@ -35,7 +42,7 @@
     .col-sm-4 .card{
         margin-top: 30px;
     }
-    .col-sm-4 .card .card-body p{
+    .col-sm-4 .card .card-body .huruf-card{
         color: white;
         text-align: center;
         font-size: 20px;
@@ -50,6 +57,10 @@
     .container .row .global{
         text-align: center;
         margin-top: 30px;
+    }
+    .col-sm-4 .card .card-body .card-text{
+        color: black;
+        font-size: 15px;
     }
     .my-custom-scrollbar {
         position: relative;
