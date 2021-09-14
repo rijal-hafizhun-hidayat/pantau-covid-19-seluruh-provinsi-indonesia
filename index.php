@@ -1,4 +1,4 @@
-<?php require_once("logic/proses.php")?>
+<?php require_once("logic/proses.php"); ?>
 
 <!doctype html>
 <html lang="en">
@@ -67,28 +67,28 @@
       <div class="col-sm-4">
         <div class="card bg-warning">
           <div class="card-body">
-            <p>Total Kasus Positif</p>
-            <p><?php echo $indo->cetak_data_positif(); ?></p>
+            <p class="huruf-card">Total Kasus Positif</p>
+            <p class="huruf-card"><?php echo $indo->cetak_data_positif(); ?></p>
           </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="card bg-success">
           <div class="card-body">
-            <p>Total Kasus Sembuh</p>
-            <p><?php echo $indo->cetak_data_sembuh(); ?></p>
+            <p class="huruf-card">Total Kasus Sembuh</p>
+            <p class="huruf-card"><?php echo $indo->cetak_data_sembuh(); ?></p>
           </div>
         </div>
       </div>
       <div class="col-sm-4">
         <div class="card bg-danger">
           <div class="card-body">
-            <p>Total Kasus Meninggal</p>
-            <p><?php echo $indo->cetak_data_meninggal(); ?></p>
+            <p class="huruf-card">Total Kasus Meninggal</p>
+            <p class="huruf-card"><?php echo $indo->cetak_data_meninggal(); ?></p>
           </div>
         </div>
       </div>
-      <h3>kasus corona virus global</h3>
+      <h3 class="global">kasus corona virus global</h3>
       <div class="table-wrapper-scroll-y my-custom-scrollbar">
         <table class="table">
           <thead>
@@ -118,6 +118,36 @@
           </tbody>
         </table>
       </div>
+      <div class="area">
+        <h3>Cari Ketersediaan Rumah Sakit Rujukan Covid-19</h3>
+        <form action="" method="POST">
+          <select name="prov" id="provinsi">
+            <option value="">--Pilih Provinsi--</option>
+          </select>
+          <select name="gedung" id="city">
+            <option value="">--Pilih Kota--</option>
+          </select>
+          <input type="submit" name="masuk_data" value="submit">
+
+        </form>
+      </div>
+      <?php
+      for ($j = 0; $j < $hospital->looping(); $j++) { ?>
+        <div class="col-sm-4">
+          <div class="card">
+            <div class="card-body ">
+              <h5 class="card-title"><?php echo $hospital->print_hospital_name($j); ?></h5>
+              <h6 class="card-subtitle mb-2 text-muted">kasur kosong: <?php echo $hospital->print_hospital_available($j); ?></h6>
+              <p class="card-text"><?php echo $hospital->print_hospital_address($j); ?></p>
+              <p class="card-text">Nomor Hp: <?php echo $hospital->print_hospital_phone($j); ?></p>
+              <p class="card-text">Info Terakhir: <?php echo $hospital->print_hospital_update($j); ?></p>
+              <a href="#" class="card-link">Map</a>
+            </div>
+          </div>
+        </div>
+      <?php }
+      ?>
+
     </div>
   </div>
 
@@ -125,6 +155,8 @@
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="js/script.js"></script>
 
   <!-- Option 2: Separate Popper and Bootstrap JS -->
   <!--
