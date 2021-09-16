@@ -141,7 +141,7 @@
               <p class="card-text"><?php echo $hospital->print_hospital_address($j); ?></p>
               <p class="card-text">Nomor Hp: <?php echo $hospital->print_hospital_phone($j); ?></p>
               <p class="card-text">Info Terakhir: <?php echo $hospital->print_hospital_update($j); ?></p>
-              <a href="#" class="card-link">Map</a>
+              <a href="<?php echo $hospital->print_hospital_map($j);?>" class="card-link">Map</a>
             </div>
           </div>
         </div>
