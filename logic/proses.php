@@ -77,7 +77,15 @@ class rumah_sakit{
     public function print_hospital_update($count){
         return $this->hospital_parsing["hospitals"][$count]["info"];
     }
+    public function print_hospital_map($count){
+        $id = $this->hospital_parsing["hospitals"][$count]["id"];
+        $api = 'https://rs-bed-covid-api.vercel.app/api/get-hospital-map?hospitalid='.$id.'';
+        $map = file_get_contents($api);
+        $map_parsing = json_decode($map, true);
+        return $map_parsing["data"]["gmaps"];
+    }
 }
+
 
 
 $indo = new virus($_POST['daerah'], 'https://api.kawalcorona.com/indonesia/provinsi/');
