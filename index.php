@@ -49,7 +49,7 @@
             <option value="17">Nusa Tenggara Timur</option>
             <option value="24">Nusa Tenggara Barat</option>
             <option value="18">Bangka Belitung</option>
-            <option value="21">Lampung</option>
+            <option value="21">lampung</option>
             <option value="22">Aceh</option>
             <option value="25">Kepulauan Riau</option>
             <option value="26">Papua Barat</option>
@@ -107,10 +107,22 @@
             ?>
               <tr>
                 <th scope="row"><?php echo $number; ?></th>
-                <td><?php echo $global->print_country($i) ?></td>
-                <td><?php echo $global->cetak_data_positif($i) ?></td>
-                <td><?php echo $global->print_recovered($i) ?></td>
-                <td><?php echo $global->print_dead($i) ?></td>
+                <td><?php echo $global->print_country($i); ?></td>
+                <?php
+                if ($global->print_positive($i) === NULL) { ?>
+                  <td>data tidak tersedia</td>
+                <?php } else { ?>
+                  <td><?php echo $global->print_positive($i); ?></td>
+                <?php }
+                ?>
+                <?php
+                if ($global->print_recovered($i) === NULL) { ?>
+                  <td>data tidak tersedia</td>
+                <?php } else { ?>
+                  <td><?php echo $global->print_recovered($i); ?></td>
+                <?php }
+                ?>
+                <td><?php echo $global->print_dead($i); ?></td>
               </tr>
             <?php }
 
@@ -141,7 +153,7 @@
               <p class="card-text"><?php echo $hospital->print_hospital_address($j); ?></p>
               <p class="card-text">Nomor Hp: <?php echo $hospital->print_hospital_phone($j); ?></p>
               <p class="card-text">Info Terakhir: <?php echo $hospital->print_hospital_update($j); ?></p>
-              <a href="<?php echo $hospital->print_hospital_map($j);?>" class="card-link">Map</a>
+              <a href="<?php echo $hospital->print_hospital_map($j); ?>" class="card-link" target="__blank">Map</a>
             </div>
           </div>
         </div>
